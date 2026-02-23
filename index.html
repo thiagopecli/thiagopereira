@@ -3,187 +3,447 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seus Links</title>
-    
-    <!-- Importa a fonte 'Poppins' do Google Fonts para um visual mais moderno -->
+    <title>Thiago Pereira | Portfólio</title>
+    <meta name="description" content="Portfólio profissional de Thiago Pereira com foco em Back-end, Data Science e DevOps.">
+    <meta name="keywords" content="Thiago Pereira, Portfólio, Back-end, Python, Data Science, DevOps, Venture Gotchi, Drywall Brune, Controle de Água">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <!-- Importa a biblioteca de ícones 'Font Awesome' -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* --- Estilos Gerais --- */
-        body {
-            font-family: 'Poppins', sans-serif;
-            /* Fundo com gradiente suave e animado */
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        :root {
+            --bg: #0b1120;
+            --surface: #111827;
+            --surface-2: #1f2937;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --primary: #22d3ee;
+            --primary-dark: #06b6d4;
+            --border: #374151;
+            --success: #34d399;
+            --radius: 18px;
+        }
+
+        * {
             box-sizing: border-box;
         }
 
-        /* Animação do fundo gradiente */
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Inter", sans-serif;
+            background: radial-gradient(circle at 20% 20%, #111f3d, var(--bg));
+            color: var(--text);
+            scroll-behavior: smooth;
         }
 
-        /* --- Container Principal --- */
         .container {
-            max-width: 680px;
-            width: 100%;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px); /* Efeito de vidro fosco (desfoque) */
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            width: min(1100px, 92vw);
+            margin: 0 auto;
         }
 
-        /* --- Foto de Perfil --- */
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%; /* Deixa a imagem redonda */
-            border: 5px solid #fff;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            object-fit: cover; /* Garante que a imagem não fique distorcida */
-            transition: transform 0.3s ease;
+        .topbar {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(8px);
+            background: rgba(11, 17, 32, 0.8);
+            border-bottom: 1px solid rgba(55, 65, 81, 0.6);
+            z-index: 20;
         }
 
-        .profile-pic:hover {
-            transform: scale(1.05); /* Leve zoom ao passar o mouse */
-        }
-
-        /* --- Textos --- */
-        h1 {
-            font-size: 2rem; /* 32px */
-            font-weight: 600;
-            margin-top: 20px;
-            margin-bottom: 8px;
-            color: #2c3e50;
-        }
-
-        p.bio {
-            font-size: 1.1rem; /* 18px */
-            font-weight: 300;
-            margin-bottom: 30px;
-            color: #34495e;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- Botões de Links --- */
-        .links-container {
+        .topbar-content {
             display: flex;
-            flex-direction: column;
-            gap: 18px; /* Espaçamento entre os botões */
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
         }
 
-        .link-button {
-            background-color: #fff;
-            color: #333;
-            padding: 16px 20px;
+        .brand {
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 18px;
+        }
+
+        .nav a {
+            color: var(--muted);
             text-decoration: none;
-            font-size: 1rem;
-            font-weight: 400;
-            border-radius: 12px;
-            border: 1px solid #ddd;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            color: var(--text);
+        }
+
+        .hero {
+            padding: 72px 0 42px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            margin: 0 0 14px;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.65;
+            max-width: 62ch;
+        }
+
+        .hero-card {
+            background: linear-gradient(145deg, rgba(34, 211, 238, 0.1), rgba(17, 24, 39, 0.95));
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+
+        .hero-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .hero-list li {
             display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--muted);
+            border-bottom: 1px dashed rgba(156, 163, 175, 0.25);
+            padding-bottom: 10px;
+        }
+
+        .hero-list li span {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .cta-group {
+            margin-top: 26px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px; /* Espaço entre o ícone e o texto */
-        }
-
-        .link-button:hover {
-            transform: translateY(-4px) scale(1.02); /* Efeito de "levantar" e aumentar o botão */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-            background-color: #f9f9f9;
-            border-color: #ccc;
-        }
-
-        .link-button i {
-            font-size: 1.2rem; /* Tamanho do ícone */
-        }
-
-        /* --- Ícones Sociais (Rodapé) --- */
-        .social-icons {
-            margin-top: 40px;
-        }
-
-        .social-icons a {
-            color: #34495e;
-            font-size: 1.8rem; /* 28px */
-            margin: 0 15px;
             text-decoration: none;
-            transition: all 0.3s ease;
+            padding: 11px 18px;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.25s ease;
         }
 
-        .social-icons a:hover {
-            color: #2c3e50;
-            transform: translateY(-3px);
+        .btn-primary {
+            background: var(--primary);
+            color: #0b1120;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-ghost {
+            color: var(--text);
+            border-color: var(--border);
+            background: rgba(17, 24, 39, 0.65);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        section {
+            padding: 28px 0;
+        }
+
+        .section-title {
+            margin: 0 0 14px;
+            font-size: 1.5rem;
+        }
+
+        .section-subtitle {
+            margin: 0 0 22px;
+            color: var(--muted);
+            line-height: 1.6;
+            max-width: 72ch;
+        }
+
+        .github-summary {
+            background: rgba(17, 24, 39, 0.75);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px;
+        }
+
+        .summary-grid {
+            margin-top: 14px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .metric {
+            background: rgba(31, 41, 55, 0.75);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px;
+        }
+
+        .metric strong {
+            display: block;
+            color: var(--success);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            background: rgba(17, 24, 39, 0.85);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px;
+        }
+
+        .project-card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .project-card p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.55;
+            font-size: 0.95rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 0.78rem;
+            background: rgba(34, 211, 238, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            border-radius: 999px;
+            padding: 5px 10px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        footer {
+            border-top: 1px solid rgba(55, 65, 81, 0.7);
+            margin-top: 28px;
+            padding: 20px 0 30px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 920px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <!-- 
-            PASSO 1: Troque a imagem abaixo.
-            Você pode usar um link de uma imagem online (como do Imgur ou do seu Google Fotos)
-            ou, quando for hospedar, colocar o nome do arquivo (ex: "minha-foto.jpg").
-        -->
-        <img src="https://lh3.googleusercontent.com/pw/AP1GczPG4C-F7ZpaxhtytfOsxR2a68s71gVlDaYyIlv0dnOUQvZmCRqBPPgdyXkGthw6cnbTpACI8jLdwl-EIImNmNov46oLuWpX_OpZeoUgMS5tYLhxpOAYsQhhc6SSV5Vr37cA7AQSjmF3V4q7j_RKV0yN_Q=w484-h645-s-no-gm?authuser=0" 
-             alt="Foto de Perfil" 
-             class="profile-pic"
-             onerror="this.onerror=null;this.src='https://placehold.co/150x150/EFEFEF/333?text=Erro!';"
-        >
-
-        <!-- PASSO 2: Edite seu nome e sua biografia -->
-        <h1> 🚧 Em Construção 🚧 | Thiago Pereira</h1>
-        <p class="bio">Desenvolvedor Back End | Cientista de Dados | Desenvolvedor DevOps</p>
-
-        <!-- 
-            PASSO 3: Personalize seus links.
-            - Troque o `href` para o seu link real.
-            - Troque o texto do botão.
-            - Você pode encontrar mais ícones em fontawesome.com
-        -->
-        <div class="links-container">
-            <a href="https://www.linkedin.com/in/thiagodossantospereira/" target="_blank" class="link-button">
-                <i class="fab fa-linkedin" style="color: #0077B5;"></i> LinkedIn
-            </a>
-            <a href="https://github.com/thiagopecli" target="_blank" class="link-button">
-                <i class="fab fa-github" style="color: #181717;"></i> GitHub
-            </a>
-            <!-- <a href="https://seu-portfolio.com" target="_blank" class="link-button">
-                <i class="fas fa-globe" style="color: #3498db;"></i> Portfólio
-            </a> -->
-            <a href="https://wa.me/5521967552055" target="_blank" class="link-button">
-                <i class="fab fa-whatsapp" style="color: #25D366;"></i> Fale Comigo
-            </a>
+    <header class="topbar">
+        <div class="container topbar-content">
+            <div class="brand">Thiago Pereira</div>
+            <nav class="nav" aria-label="Navegação principal">
+                <a href="#sobre">Sobre</a>
+                <a href="#github">GitHub</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#contato">Contato</a>
+            </nav>
         </div>
+    </header>
 
-        <!-- PASSO 4: Adicione suas redes sociais -->
-        <div class="social-icons">
-            <a href="https://www.instagram.com/thiagopecli/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <main class="container">
+        <section class="hero" id="sobre">
+            <div>
+                <h1>Back-end, Dados e DevOps com foco em projetos reais.</h1>
+                <p>
+                    Sou Thiago Pereira, estudante de Ciência da Computação e desenvolvedor em evolução contínua.
+                    Este portfólio reúne projetos práticos com foco em solução de problemas reais, qualidade técnica
+                    e aprendizado aplicado.
+                </p>
+
+                <div class="cta-group">
+                    <a class="btn btn-primary" href="https://github.com/thiagopecli" target="_blank" rel="noopener noreferrer">Ver GitHub</a>
+                    <a class="btn btn-ghost" href="https://www.linkedin.com/in/thiagodossantospereira/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="btn btn-ghost" href="https://wa.me/5521967552055" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+                </div>
+            </div>
+
+            <aside class="hero-card" aria-label="Resumo profissional">
+                <ul class="hero-list">
+                    <li>Área principal <span>Back-end Python</span></li>
+                    <li>Foco complementar <span>Data Science & DevOps</span></li>
+                    <li>Objetivo <span>Projetos escaláveis e úteis</span></li>
+                    <li>Localização <span>Maricá, RJ</span></li>
+                </ul>
+            </aside>
+        </section>
+
+        <section id="github">
+            <h2 class="section-title">Avaliação do GitHub</h2>
+            <p class="section-subtitle">
+                Seu perfil mostra consistência e evolução. Há boa frequência de contribuições recentes,
+                presença de README de perfil e repositórios alinhados com seu foco em Python e desenvolvimento web.
+            </p>
+
+            <div class="github-summary">
+                <div class="summary-grid">
+                    <article class="metric">
+                        <strong>500+ contribuições</strong>
+                        <span>Atividade anual sólida, sinalizando disciplina e constância.</span>
+                    </article>
+                    <article class="metric">
+                        <strong>7+ repositórios públicos</strong>
+                        <span>Variedade de estudos e projetos aplicados em andamento.</span>
+                    </article>
+                    <article class="metric">
+                        <strong>Perfil com README</strong>
+                        <span>Boa apresentação pessoal e posicionamento profissional inicial.</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projetos">
+            <h2 class="section-title">Projetos em destaque</h2>
+            <p class="section-subtitle">
+                Três projetos estratégicos para demonstrar produto, engenharia e visão de negócio.
+            </p>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <h3>Venture Gotchi</h3>
+                    <p>
+                        Projeto com proposta lúdica e orientada a produto, unindo lógica de sistema,
+                        organização de funcionalidades e experiência de uso.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Produto</span>
+                        <span class="tag">Back-end</span>
+                    </div>
+                    <div class="project-links">
+                        <a class="btn btn-ghost" href="https://github.com/thiagopecli/venture_gotchi" target="_blank" rel="noopener noreferrer">Repositório</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <h3>Drywall Brune</h3>
+                    <p>
+                        Projeto para presença digital e divulgação de serviços, com foco em credibilidade,
+                        clareza da proposta e geração de contato comercial.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Website</span>
+                        <span class="tag">Negócio</span>
+                        <span class="tag">UI Responsiva</span>
+                    </div>
+                    <div class="project-links">
+                        <a class="btn btn-ghost" href="#contato">Solicitar demonstração</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <h3>Controle de Água</h3>
+                    <p>
+                        Solução para monitorar consumo e apoiar decisões, combinando análise de dados,
+                        organização de registros e visão prática de sustentabilidade.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Dados</span>
+                        <span class="tag">Sustentabilidade</span>
+                    </div>
+                    <div class="project-links">
+                        <a class="btn btn-ghost" href="https://github.com/thiagopecli/controle-de-consumo-de-agua" target="_blank" rel="noopener noreferrer">Repositório</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contato">
+            <h2 class="section-title">Contato</h2>
+            <p class="section-subtitle">
+                Aberto para oportunidades de estágio, freelas e colaboração em projetos.
+            </p>
+            <div class="cta-group">
+                <a class="btn btn-primary" href="https://www.linkedin.com/in/thiagodossantospereira/" target="_blank" rel="noopener noreferrer">Conectar no LinkedIn</a>
+                <a class="btn btn-ghost" href="https://www.instagram.com/thiagopecli/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a class="btn btn-ghost" href="mailto:thiago.pecli@live.com">E-mail profissional</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 Thiago Pereira · Portfólio profissional
         </div>
-    </div>
-
+    </footer>
 </body>
 </html>
